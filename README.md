@@ -13,93 +13,64 @@
   </style>
 </head>
 <body class="min-h-screen">
-  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h1 class="text-6xl md:text-7xl font-bold hero neon mb-4">THE YAFA REUP</h1>
-    <p class="text-3xl text-cyan-300">IT’S ALL ABOUT THE YAFA 🤴🏾</p>
-
-    <div class="card rounded-3xl p-10 my-12">
-      <h2 class="text-4xl font-bold mb-6">Buy $YAFAREUP</h2>
-      <div class="bg-black/60 rounded-2xl p-5 font-mono text-sm break-all mb-8">
-        HNvFVYzN5eqBacybyzkEVwEnqZxUozexvjgLjdAJ6iki
-      </div>
-      <button onclick="window.open('https://jupiter.ag','_blank')" class="bg-gradient-to-r from-pink-500 to-cyan-500 px-10 py-5 rounded-full text-xl font-semibold mx-2">BUY ON JUPITER</button>
-      <button onclick="window.open('https://raydium.io/swap/','_blank')" class="bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-5 rounded-full text-xl font-semibold mx-2">TRADE ON RAYDIUM</button>
+  <div class="max-w-5xl mx-auto px-6 py-16 text-center">
+    <!-- Official Logo -->
+    <div class="mb-12">
+      <img src="logo.png" alt="THE YAFA REUP Official Logo" class="mx-auto w-full max-w-2xl">
+      <h1 class="text-6xl md:text-7xl font-bold hero neon mt-6">THE YAFA REUP</h1>
+      <p class="text-3xl text-cyan-300">IT’S ALL ABOUT THE YAFA 🤴🏾</p>
     </div>
 
-    <div class="card rounded-3xl p-10 my-12">
-      <h2 class="text-4xl font-bold mb-6">Backend & Strategy</h2>
-      <p class="text-xl">Full technical backend strategy and private bot setup documented here</p>
-      <a href="BACKEND-STRATEGY.md" class="text-cyan-400 underline text-lg mt-4 inline-block">View Full Backend Strategy →</a>
+    <!-- Buy Section -->
+    <div class="card rounded-3xl p-10 mb-12">
+      <h2 class="text-4xl font-bold mb-6">Buy $YAFAREUP Now</h2>
+      <div class="bg-black/60 rounded-2xl p-6 font-mono text-sm break-all mx-auto max-w-md mb-8">
+        HNvFVYzN5eqBacybyzkEVwEnqZxUozexvjgLjdAJ6iki
+      </div>
+      <div class="flex flex-wrap justify-center gap-4">
+        <button onclick="window.open('https://jupiter.ag','_blank')" class="bg-gradient-to-r from-pink-500 to-cyan-500 px-10 py-5 rounded-full text-xl font-semibold">BUY ON JUPITER</button>
+        <button onclick="window.open('https://raydium.io/swap/','_blank')" class="bg-gradient-to-r from-purple-500 to-pink-500 px-10 py-5 rounded-full text-xl font-semibold">TRADE ON RAYDIUM</button>
+      </div>
+    </div>
+
+    <!-- AI Assisted Strategy -->
+    <div class="card rounded-3xl p-10 mb-12">
+      <h2 class="text-4xl font-bold mb-8 text-cyan-400">AI-Assisted Strategy</h2>
+      <div class="text-left max-w-2xl mx-auto space-y-8 text-lg">
+        <div>
+          <p class="font-semibold text-cyan-300">Auto AI LP Builder</p>
+          <p>AI monitors market 24/7 and buys <strong>only 1/64 or 1/128 of total circulating supply per day</strong> (AI chooses the safest fraction based on volatility & liquidity). Gradually builds deeper Raydium LP without impacting price.</p>
+        </div>
+        <div>
+          <p class="font-semibold text-cyan-300">14% Tax Split</p>
+          <p>7% → Holders rewards • 7% → Treasury (auto-buys $GODSKING)</p>
+        </div>
+        <div>
+          <p class="font-semibold text-cyan-300">7% Annual Burn</p>
+          <p>Every July 26th until supply reaches exactly 23,000,000 YAFAREUP</p>
+        </div>
+      </div>
     </div>
 
     <footer class="mt-16 text-sm text-gray-500">
-      Fair launch • No presale • Real dev • Additional wallets added later
+      Fair launch • No presale • Real dev • IT’S ALL ABOUT THE YAFA 🤴🏾
     </footer>
   </div>
 </body>
 </html>
-# $YAFAREUP Backend Strategy
-
-**Overview**
-The backend is 100% private (never in public GitHub). It handles:
-- Treasury fee collection & auto-buy $GODSKING
-- 14 hot wallet management
-- Annual 7% burn execution
-- Admin dashboard communication
-
-**Architecture**
-- Flask Python API (lightweight, easy to host)
-- Environment variables only for private keys (never committed)
-- Jupiter API for swaps (Treasury → $GODSKING)
-- Cron/scheduler for July 26 burn
-
-**Core Components**
-1. **Treasury Flow**
-   - 7% tax lands in Master Treasury wallet automatically (Token-2022 fee)
-   - Bot checks balance every 30 min
-   - 50% swapped to $GODSKING via Jupiter (one-click or automated)
-
-2. **Hot Wallet Management**
-   - 14 wallets loaded from .env
-   - Used for trading, liquidity adds, giveaways
-   - Keys stored only on private server / Render secrets
-
-3. **Annual Burn**
-   - Separate script runs on July 26 (cron job)
-   - 7% of current supply burned from main holding wallet
-   - Liquidity safety check before burn
-
-4. **Admin Dashboard Connection**
-   - Frontend admin.html sends POST to /update_params
-   - Updates trade amount, AI mode, etc. in real time
-
-**Deployment (Recommended – Free Tier)**
-1. Go to render.com → New Web Service
-2. Connect your private GitHub repo (or upload files manually)
-3. Set environment variables (all 14 PRIVATE_KEY_1 to PRIVATE_KEY_14 + RPC URL)
-4. Add Cron job for annual burn (July 26 every year)
-5. Use Helius or QuickNode RPC for production speed
-
-**Security Rules**
-- Keys NEVER in public repo
-- All keys in Render secrets / .env (gitignore)
-- Admin password protected
-- Bot runs with minimal permissions
-
-**Future Upgrades**
-- Full claim site for holders rewards
-- Telegram bot notifications
-- P2E game treasury integration
-- Multi-sig for large burns
-
-This backend keeps everything transparent on-chain while giving you full private control.
 # THE YAFA REUP – $YAFAREUP
 
-Official public landing page.
+Official public landing page featuring the official winged banana crown logo.
+
+**Key Features**
+- 14% tax → 7% holders + 7% treasury (auto-buys $GODSKING)
+- 7% annual burn every July 26 until 23M supply
+- Auto AI-Assisted LP Builder – buys only 1/64 or 1/128 of circulating supply daily (AI decides safest fraction)
+
+**Mint CA:** HNvFVYzN5eqBacybyzkEVwEnqZxUozexvjgLjdAJ6iki  
+**$GODSKING CA:** 5uEFua7ccmt6urkv1wDSUWkTedVFnud2LY3MKx9ypump
 
 Live: https://yourusername.github.io/the-yafa-reup-dapp
-
-Full backend strategy (private bot, treasury buys, annual burn) → see BACKEND-STRATEGY.md
 .env
 .env.*
 *.key
